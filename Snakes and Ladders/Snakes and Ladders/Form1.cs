@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.IO;
 
 
 namespace Snakes_and_Ladders
@@ -71,30 +71,30 @@ namespace Snakes_and_Ladders
                 {
                     case 2:
                         turnplayerimage.Image = PlayerPic2.Image;
-                        label1.Enabled = true;
-                        PlayerPic1.Enabled = true;
+                        label1.Enabled = false;
+                        PlayerPic1.Enabled = false;
                         label2.Enabled = true;
                         PlayerPic2.Enabled = true;
                         MessageBox.Show("It is now player 2's turn, please take your roll.");
                         break;
                     case 3:
                         turnplayerimage.Image = PlayerPic3.Image;
-                        label1.Enabled = true;
-                        PlayerPic1.Enabled = true;
-                        label2.Enabled = true;
-                        PlayerPic2.Enabled = true;
+                        label1.Enabled = false;
+                        PlayerPic1.Enabled = false;
+                        label2.Enabled = false;
+                        PlayerPic2.Enabled = false;
                         label3.Enabled = true;
                         PlayerPic3.Enabled = true;
                         MessageBox.Show("It is now player 3's turn, please take your roll.");
                         break;
                     case 4:
                         turnplayerimage.Image = PlayerPic4.Image;
-                        label1.Enabled = true;
-                        PlayerPic1.Enabled = true;
-                        label2.Enabled = true;
-                        PlayerPic2.Enabled = true;
-                        label3.Enabled = true;
-                        PlayerPic3.Enabled = true;
+                        label1.Enabled = false;
+                        PlayerPic1.Enabled = false;
+                        label2.Enabled = false;
+                        PlayerPic2.Enabled = false;
+                        label3.Enabled = false;
+                        PlayerPic3.Enabled = false;
                         label4.Enabled = true;
                         PlayerPic4.Enabled = true;
                         MessageBox.Show("It is now player 4's turn, please take your roll.");
@@ -355,9 +355,46 @@ namespace Snakes_and_Ladders
 
                 if (newposition >= 63)
                 {
+                    TurnPlayer[currentplayer].Position = 64;
+
                     MessageBox.Show(TurnPlayer[currentplayer].Name + " " + "is the winner");
                     MessageBox.Show("Thankyou for playing my game.");
                     MessageBox.Show("The application will now close automatically");
+
+                    DialogResult result = MessageBox.Show("Would you like to save the results of this game?", "", MessageBoxButtons.YesNo);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        //Save logic
+                        if (PlacingsFromGame.ShowDialog() == DialogResult.OK)
+                        {
+                            StreamWriter stream = new StreamWriter(PlacingsFromGame.FileName);
+                            stream.WriteLine("Snakes and ladders Game #");
+                            ///Who won
+                            ///
+
+                            stream.WriteLine("Winner: " + TurnPlayer[currentplayer].Name);
+
+                            ///Save positions of each other player
+                            ///Correct the positions
+
+                            int player1Pos = TurnPlayer[1].Position + 1;
+                            int player2Pos = TurnPlayer[2].Position + 1;
+                            int player3Pos = TurnPlayer[3].Position + 1;
+                            int player4Pos = TurnPlayer[4].Position + 1;
+
+                            ///Write them into the file
+                            stream.WriteLine("Final Positions:");
+                            stream.WriteLine(TurnPlayer[1].Name + "'s end position was " + player1Pos);
+                            stream.WriteLine(TurnPlayer[2].Name + "'s end position was " + player2Pos);
+                            stream.WriteLine(TurnPlayer[3].Name + "'s end position was " + player3Pos);
+                            stream.WriteLine(TurnPlayer[4].Name + "'s end position was " + player4Pos);
+                            stream.WriteLine("");
+
+                            stream.Close();
+                        }
+                    }
+
                     Application.Exit();
                 }
                 else

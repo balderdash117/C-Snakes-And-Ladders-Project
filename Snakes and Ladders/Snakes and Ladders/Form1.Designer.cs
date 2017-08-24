@@ -114,6 +114,7 @@
             this.turnplayerimage = new System.Windows.Forms.PictureBox();
             this.clearbox = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.PlacingsFromGame = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dice1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dice6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dice3)).BeginInit();
@@ -1336,6 +1337,7 @@
         private System.Windows.Forms.PictureBox turnplayerimage;
         private System.Windows.Forms.PictureBox clearbox;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.SaveFileDialog PlacingsFromGame;
     }
 }
 
