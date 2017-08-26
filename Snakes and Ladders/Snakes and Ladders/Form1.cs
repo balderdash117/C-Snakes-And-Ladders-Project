@@ -369,7 +369,7 @@ namespace Snakes_and_Ladders
                         if (PlacingsFromGame.ShowDialog() == DialogResult.OK)
                         {
                             StreamWriter stream = new StreamWriter(PlacingsFromGame.FileName);
-                            stream.WriteLine("Snakes and ladders Game #");
+                            stream.WriteLine("Snakes and ladders Game Results");
                             ///Who won
                             ///
 
