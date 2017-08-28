@@ -12,6 +12,11 @@ namespace Snakes_and_Ladders
 {
     public partial class StartUpForm : Form
     {
+        public string name1;
+        public string name2;
+        public string name3;
+        public string name4;
+
         public StartUpForm()
         {
             InitializeComponent();
@@ -20,8 +25,13 @@ namespace Snakes_and_Ladders
         private void ButtonBegin_Click(object sender, EventArgs e)
         {
             int NumberOfPlayers;
-            NumberOfPlayers = (int)numericUpDown1.Value;
-            
+            NumberOfPlayers = (int)numericOfPlayers.Value;
+
+            name1 = player1name.Text;
+            name2 = player2name.Text;
+            name3 = player3name.Text;
+            name4 = player4name.Text;
+
             Form1 FormMain = new Form1();
             FormMain.PlayersNumber = NumberOfPlayers;
             FormMain.Show();
@@ -29,5 +39,43 @@ namespace Snakes_and_Ladders
             
         }
 
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            switch (int.Parse(numericOfPlayers.Value.ToString()))
+            {
+                case 2:
+                    player3GB.Enabled = false;
+                    player4GB.Enabled = false;
+                    break;
+                case 3:
+                    player3GB.Enabled = true;
+                    player4GB.Enabled = false;
+                    break;
+                case 4:
+                    player3GB.Enabled = true;
+                    player4GB.Enabled = true;
+                    break;
+            }
+        }
+
+        private void player1imageButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void player2imageButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void player3imageButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void player4imageButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

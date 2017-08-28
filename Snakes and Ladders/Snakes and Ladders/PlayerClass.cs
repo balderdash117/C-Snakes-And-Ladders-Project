@@ -8,7 +8,6 @@ namespace Snakes_and_Ladders
 {
     class PlayerClass
     {
-        
             private string _name;
             private int _position;
             private int _number;

@@ -18,6 +18,7 @@ namespace Snakes_and_Ladders
         Random r = new Random();
         PictureBox[] MyBoard = new PictureBox[64];
         PlayerClass[] TurnPlayer = new PlayerClass[5];
+        System.Windows.Forms.Form startUp = System.Windows.Forms.Application.OpenForms["StartUpForm"];
         private int _NoOfPlayers;
         int rollnumber;
         int dicenumber;
@@ -166,7 +167,7 @@ namespace Snakes_and_Ladders
             createboardarray();
             createplayerarray();
             buttonRoll.Enabled = false;
-            
+
             switch (_NoOfPlayers)
             {
                 case 1:
@@ -408,7 +409,6 @@ namespace Snakes_and_Ladders
                         MyBoard[newposition].Image = turnplayerimage.Image;
                         MyBoard[oldposition].Image = clearbox.Image;
                     }
-
                 }
             }
 
@@ -424,22 +424,22 @@ namespace Snakes_and_Ladders
         private void createplayerarray()
         {          
             PlayerClass Player1 = new PlayerClass();
-            Player1.Name = "Player 1";
+            Player1.Name = ((StartUpForm)startUp).name1;
             Player1.Position = -1;
             Player1.Number = 1;
             Player1.skipTurn = false;
             PlayerClass Player2 = new PlayerClass();
-            Player2.Name = "Player 2";
+            Player2.Name = ((StartUpForm)startUp).name2;
             Player2.Position = -1;
             Player2.Number = 2;
             Player2.skipTurn = false;
             PlayerClass Player3 = new PlayerClass();
-            Player3.Name = "Player 3";
+            Player3.Name = ((StartUpForm)startUp).name3;
             Player3.Position = -1;
             Player3.Number = 3;
             Player3.skipTurn = false;
             PlayerClass Player4 = new PlayerClass();
-            Player4.Name = "Player 4";
+            Player4.Name = ((StartUpForm)startUp).name4;
             Player4.Position = -1;
             Player4.Number = 4;
             Player4.skipTurn = false;
@@ -448,6 +448,11 @@ namespace Snakes_and_Ladders
             TurnPlayer[2] = Player2;
             TurnPlayer[3] = Player3;
             TurnPlayer[4] = Player4;
+
+            label1.Text = Player1.Name;
+            label2.Text = Player2.Name;
+            label3.Text = Player3.Name;
+            label4.Text = Player4.Name;
         }
 
         private void buttonstart_Click(object sender, EventArgs e)
