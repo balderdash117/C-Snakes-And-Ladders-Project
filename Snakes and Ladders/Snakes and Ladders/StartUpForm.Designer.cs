@@ -49,12 +49,20 @@
             this.player4imageButton = new System.Windows.Forms.Button();
             this.player4name = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.PlayerPic1 = new System.Windows.Forms.PictureBox();
+            this.PlayerPic4 = new System.Windows.Forms.PictureBox();
+            this.PlayerPic3 = new System.Windows.Forms.PictureBox();
+            this.PlayerPic2 = new System.Windows.Forms.PictureBox();
+            this.images = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.numericOfPlayers)).BeginInit();
             this.player1BG.SuspendLayout();
             this.player2BG.SuspendLayout();
             this.player3GB.SuspendLayout();
             this.player4GB.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PlayerPic1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlayerPic4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlayerPic3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlayerPic2)).BeginInit();
             this.SuspendLayout();
             // 
             // ButtonBegin
@@ -269,6 +277,61 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Name";
             // 
+            // PlayerPic1
+            // 
+            this.PlayerPic1.BackColor = System.Drawing.Color.Transparent;
+            this.PlayerPic1.Enabled = false;
+            this.PlayerPic1.Image = global::Snakes_and_Ladders.Properties.Resources.player_1;
+            this.PlayerPic1.Location = new System.Drawing.Point(75, 495);
+            this.PlayerPic1.Name = "PlayerPic1";
+            this.PlayerPic1.Size = new System.Drawing.Size(50, 50);
+            this.PlayerPic1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PlayerPic1.TabIndex = 74;
+            this.PlayerPic1.TabStop = false;
+            this.PlayerPic1.Visible = false;
+            // 
+            // PlayerPic4
+            // 
+            this.PlayerPic4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PlayerPic4.BackColor = System.Drawing.Color.Transparent;
+            this.PlayerPic4.Enabled = false;
+            this.PlayerPic4.Image = global::Snakes_and_Ladders.Properties.Resources.player_4;
+            this.PlayerPic4.Location = new System.Drawing.Point(837, 495);
+            this.PlayerPic4.Name = "PlayerPic4";
+            this.PlayerPic4.Size = new System.Drawing.Size(50, 50);
+            this.PlayerPic4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PlayerPic4.TabIndex = 79;
+            this.PlayerPic4.TabStop = false;
+            this.PlayerPic4.Visible = false;
+            // 
+            // PlayerPic3
+            // 
+            this.PlayerPic3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PlayerPic3.BackColor = System.Drawing.Color.Transparent;
+            this.PlayerPic3.Enabled = false;
+            this.PlayerPic3.Image = global::Snakes_and_Ladders.Properties.Resources.player_3;
+            this.PlayerPic3.Location = new System.Drawing.Point(585, 495);
+            this.PlayerPic3.Name = "PlayerPic3";
+            this.PlayerPic3.Size = new System.Drawing.Size(50, 50);
+            this.PlayerPic3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PlayerPic3.TabIndex = 78;
+            this.PlayerPic3.TabStop = false;
+            this.PlayerPic3.Visible = false;
+            // 
+            // PlayerPic2
+            // 
+            this.PlayerPic2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PlayerPic2.BackColor = System.Drawing.Color.Transparent;
+            this.PlayerPic2.Enabled = false;
+            this.PlayerPic2.Image = global::Snakes_and_Ladders.Properties.Resources.player_2;
+            this.PlayerPic2.Location = new System.Drawing.Point(333, 495);
+            this.PlayerPic2.Name = "PlayerPic2";
+            this.PlayerPic2.Size = new System.Drawing.Size(50, 50);
+            this.PlayerPic2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PlayerPic2.TabIndex = 77;
+            this.PlayerPic2.TabStop = false;
+            this.PlayerPic2.Visible = false;
+            // 
             // StartUpForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -278,6 +341,10 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1149, 596);
+            this.Controls.Add(this.PlayerPic4);
+            this.Controls.Add(this.PlayerPic3);
+            this.Controls.Add(this.PlayerPic2);
+            this.Controls.Add(this.PlayerPic1);
             this.Controls.Add(this.player4GB);
             this.Controls.Add(this.player3GB);
             this.Controls.Add(this.player2BG);
@@ -301,6 +368,10 @@
             this.player3GB.PerformLayout();
             this.player4GB.ResumeLayout(false);
             this.player4GB.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PlayerPic1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlayerPic4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlayerPic3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlayerPic2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -325,9 +396,13 @@
         private System.Windows.Forms.Button player4imageButton;
         private System.Windows.Forms.TextBox player4name;
         private System.Windows.Forms.Label label2;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button player1imageButton;
         private System.Windows.Forms.Button player2imageButton;
         private System.Windows.Forms.Button player3imageButton;
+        private System.Windows.Forms.PictureBox PlayerPic1;
+        private System.Windows.Forms.PictureBox PlayerPic4;
+        private System.Windows.Forms.PictureBox PlayerPic3;
+        private System.Windows.Forms.PictureBox PlayerPic2;
+        private System.Windows.Forms.SaveFileDialog images;
     }
 }

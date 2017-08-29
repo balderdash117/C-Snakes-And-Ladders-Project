@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Snakes_and_Ladders
 {
@@ -60,22 +61,54 @@ namespace Snakes_and_Ladders
 
         private void player1imageButton_Click(object sender, EventArgs e)
         {
+            images.Filter = "image files (*.jpg, *.png) | *.jpg; *.png";
+            images.Title = "Please choose a new image for " + player1name.Text;
 
+            if (images.ShowDialog() == DialogResult.OK)
+            {
+                PlayerPic1.Image = new Bitmap(images.FileName);
+            }
+
+            images.Dispose();
         }
 
         private void player2imageButton_Click(object sender, EventArgs e)
         {
+            images.Filter = "image files (*.jpg, *.png) | *.jpg; *.png";
+            images.Title = "Please choose a new image for " + player2name.Text;
 
+            if (images.ShowDialog() == DialogResult.OK)
+            {
+                PlayerPic2.Image = new Bitmap(images.FileName);
+            }
+
+            images.Dispose();
         }
 
         private void player3imageButton_Click(object sender, EventArgs e)
         {
+            images.Filter = "image files (*.jpg, *.png) | *.jpg; *.png";
+            images.Title = "Please choose a new image for " + player3name.Text;
 
+            if (images.ShowDialog() == DialogResult.OK)
+            {
+                PlayerPic3.Image = new Bitmap(images.FileName);
+            }
+
+            images.Dispose();
         }
 
         private void player4imageButton_Click(object sender, EventArgs e)
         {
+            images.Filter = "image files (*.jpg, *.png) | *.jpg; *.png";
+            images.Title = "Please choose a new image for " + player4name.Text;
 
+            if (images.ShowDialog() == DialogResult.OK)
+            {
+                PlayerPic4.Image = new Bitmap(images.FileName);
+            }
+
+            images.Dispose();
         }
     }
 }
